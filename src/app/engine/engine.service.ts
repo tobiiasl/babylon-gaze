@@ -68,6 +68,7 @@ export class EngineService {
 
     const scaleFactor = 1.7 / 59;
 
+    host = 'tg03b-080200100361.local'
     getGaze(host).subscribe(
       (gaze: any) => {
         flyposition = new Vector3(gaze[0], gaze[1], -gaze[2]).scale(scaleFactor);

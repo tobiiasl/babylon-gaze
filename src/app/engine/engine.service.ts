@@ -35,7 +35,7 @@ export class EngineService {
   ) {}
 
 
-  public createScene(canvas: ElementRef<HTMLCanvasElement>): void {
+  public createScene(canvas: ElementRef<HTMLCanvasElement>, host: string): void {
     // The first step is to get the reference of the canvas element    from our HTML document
     this.canvas = canvas.nativeElement;
 
@@ -67,7 +67,8 @@ export class EngineService {
     let flyposition = new Vector3(1, 0, -3);
 
     const scaleFactor = 1.7 / 59;
-    getGaze('tg03b-080200005381.local').subscribe(
+
+    getGaze(host).subscribe(
       (gaze: any) => {
         flyposition = new Vector3(gaze[0], gaze[1], -gaze[2]).scale(scaleFactor);
       }

@@ -64,7 +64,7 @@ export class EngineService {
 
     this.eyesSetPosition(eyes1, new Vector3(0, 0, 0));
 
-    let flyposition = new Vector3(1, 0, -3);
+    let flyposition = new Vector3(0, 0, -10);
 
     const scaleFactor = 1.7 / 59;
 

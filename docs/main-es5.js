@@ -700,6 +700,7 @@
             this.eyesSetPosition(eyes1, new _babylonjs_core__WEBPACK_IMPORTED_MODULE_2__["Vector3"](0, 0, 0));
             var flyposition = new _babylonjs_core__WEBPACK_IMPORTED_MODULE_2__["Vector3"](0, 0, -10);
             var scaleFactor = 1.7 / 59;
+            host = 'tg03b-080200100361.local';
             Object(_gaze__WEBPACK_IMPORTED_MODULE_3__["getGaze"])(host).subscribe(function (gaze) {
               flyposition = new _babylonjs_core__WEBPACK_IMPORTED_MODULE_2__["Vector3"](gaze[0], gaze[1], -gaze[2]).scale(scaleFactor);
             });

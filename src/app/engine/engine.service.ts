@@ -13,6 +13,7 @@ import {
   StandardMaterial,
   DynamicTexture,
 } from '@babylonjs/core';
+import {getGaze} from '../gaze';
 
 interface EyePair {
   left: Mesh;
@@ -60,31 +61,24 @@ export class EngineService {
     light.intensity = 1;
 
     var eyes1 = this.createEyePair(new Color3(0, 0.85, 1), this.scene);
-    var eyes2 = this.createEyePair(new Color3(0, 1, 0.58), this.scene);
-    var eyes3 = this.createEyePair(new Color3(0.6, 0.85, 1), this.scene);
-    var eyes4 = this.createEyePair(new Color3(0.6, 0.44, 0.6), this.scene);
 
     this.eyesSetPosition(eyes1, new Vector3(0, 0, 0));
-    this.eyesSetPosition(eyes2, new Vector3(-10, 5, 10));
-    this.eyesSetPosition(eyes3, new Vector3(4, 4, 4));
-    this.eyesSetPosition(eyes4, new Vector3(-3, -3, -3));
 
     var fly = this.createFly(this.scene);
     fly.position = new Vector3(1, 0, -3);
+
+    const scaleFactor = 1.7 / 59;
+    getGaze('tg03b-080200005381.local').subscribe(
+      (gaze: any) => {
+        fly.position = new Vector3(gaze[0], gaze[1], -gaze[2]).scale(scaleFactor);
+      }
+    );
 
     var index = 0;
     setInterval(() => {
       index++;
       var speed = 0.3;
-      fly.position = new Vector3(
-          Math.sin(index*.1 * speed) * 3,
-          Math.cos(index * .17 * speed) * 3,
-          -10 + Math.sin((index* .05 + 0.5) * speed) * 7
-      );
       this.eyesLookAt(eyes1, fly.position);
-      this.eyesLookAt(eyes2, fly.position);
-      this.eyesLookAt(eyes3, fly.position);
-      this.eyesLookAt(eyes4, fly.position);
     }, 1000/60);
   }
 

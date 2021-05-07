@@ -16,6 +16,5 @@ export class EngineComponent implements OnInit {
   public ngOnInit(): void {
     this.engServ.createScene(this.rendererCanvas);
     this.engServ.animate();
-    getGaze('tg03b-080200005381.local').subscribe(console.log);
   }
 }

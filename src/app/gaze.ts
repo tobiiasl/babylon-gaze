@@ -1,5 +1,5 @@
 import {Observable, Subject} from 'rxjs';
-import {filter} from 'rxjs/operators';
+import {filter, map} from 'rxjs/operators';
 
 export const getGaze = function(host: string): Observable<any> {
   const ws = new WebSocket(`ws://${host}/websocket`, 'g3api');
@@ -23,7 +23,8 @@ export const getGaze = function(host: string): Observable<any> {
       });
     }, {once: true});
   });
-  return gaze$.pipe(filter((obj) => Object.keys(obj).length > 0));
+  return gaze$.pipe(
+    filter((obj) => Object.keys(obj).length > 0),
+    map((gaze: any) => gaze.gaze3d)
+  );
 }
-
-// getGaze('tg03b-080200005381.local').subscribe(console.log);

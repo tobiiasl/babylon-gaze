@@ -64,13 +64,12 @@ export class EngineService {
 
     this.eyesSetPosition(eyes1, new Vector3(0, 0, 0));
 
-    var fly = this.createFly(this.scene);
-    fly.position = new Vector3(1, 0, -3);
+    let flyposition = new Vector3(1, 0, -3);
 
     const scaleFactor = 1.7 / 59;
     getGaze('tg03b-080200005381.local').subscribe(
       (gaze: any) => {
-        fly.position = new Vector3(gaze[0], gaze[1], -gaze[2]).scale(scaleFactor);
+        flyposition = new Vector3(gaze[0], gaze[1], -gaze[2]).scale(scaleFactor);
       }
     );
 
@@ -78,7 +77,7 @@ export class EngineService {
     setInterval(() => {
       index++;
       var speed = 0.3;
-      this.eyesLookAt(eyes1, fly.position);
+      this.eyesLookAt(eyes1, flyposition);
     }, 1000/60);
   }
 
@@ -102,14 +101,6 @@ export class EngineService {
       var beta = Math.atan2(gazeVector.x, -gazeVector.z);
 
       eye.rotation = new Vector3(alpha, -beta);
-  }
-
-  public createFly(scene) {
-      var fly = MeshBuilder.CreateSphere("fly", {diameter: 0.5, segments: 8}, scene);
-      const material = new StandardMaterial("flymaterial", scene);
-      material.diffuseColor = Color3.Red();
-      fly.material = material;
-      return fly;
   }
 
   public createEye(color: Color3, radius: number, scene: Scene): Mesh {

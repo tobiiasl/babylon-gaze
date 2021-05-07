@@ -1,31 +1,23 @@
-# ng-babylon
+# babylon-gaze
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) and is designed as a basic template for [BabylonJS](https://www.babylonjs.com/) combined with [Angular](https://angular.io/) and [Bootstrap](https://getbootstrap.com/) in Version 4.0
+Bablyon-gaze is a small angular app which connects to a pair of Tobii Pro Glasses 3 (eye tracking wearables) and shows a pair of eyes looking in the same direction as the person wearing the glasses.
 
-The project is setup to use global [SCSS](https://sass-lang.com/) only and [ViewEncapsulation.None](https://angular.io/api/core/ViewEncapsulation).
+This hack is the result of a short hackathlon event where I and [@fredrikj](https://github.com/fredrikj) added retrieving gaze to our previous hack: https://github.com/tobiiasl/babylon-gaze using the Glasses 3 API.
 
-Feel free to do anything you want with this template.
+Focus was to get something working quickly and thus code quality had to suffer.
 
-## Development server
+**Run hack**
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+- Make sure you have your Tobii Pro Glasses 3 glasses connected to your network.
+- Clone this repo
+- Run "npm install"
+- Run "ng serve" to compile the typescript code and start the Angular web server
+- Navigate to the web app and specify which unit to connect to, e.g.
+  - `http://localhost:4200/tg03b-080200100361.local` OR
+  - `http://localhost:4200/192.175.75.51`
+- Put on the Tobii Pro Glasses 3 and start looking around. The eyes will look in the same direction as you do.
 
-## Code scaffolding
+**Screenshot**
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+![image](https://user-images.githubusercontent.com/7059915/117458642-ca376200-af4a-11eb-8a59-4552dc2f2b99.png)
 
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).

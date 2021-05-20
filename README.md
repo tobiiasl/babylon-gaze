@@ -9,6 +9,7 @@ Focus was to get something working quickly and thus code quality had to suffer.
 **Steps to run the app**
 
 - Clone this repo
+- Download and install npm - Node package manager: https://www.npmjs.com/
 - Run "npm install"
 - Run "ng serve" to compile the typescript code and start the Angular web server
 - Make sure you have your Tobii Pro Glasses 3 glasses connected to your network.

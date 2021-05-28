@@ -9,7 +9,10 @@ import {
   Color3,
   Vector3,
   HemisphericLight,
-  StandardMaterial
+  StandardMaterial,
+  DynamicTexture,
+  Texture,
+  Color4
 } from '@babylonjs/core';
 import {getGaze} from '../gaze';
 
@@ -39,6 +42,7 @@ export class EngineService {
 
     // This creates a basic Babylon Scene object (non-mesh)
     this.scene = new Scene(this.engine);
+    this.scene.clearColor = new Color4(0,0,0,0);
 
     // This creates and positions a free camera (non-mesh)
     this.camera = new FreeCamera("camera1", new Vector3(0, 0, -20), this.scene);
@@ -54,6 +58,14 @@ export class EngineService {
 
     // Default intensity is 1. Let's dim the light a small amount
     light.intensity = 1;
+
+    var plane = Mesh.CreatePlane("face", 10, this.scene);
+    plane.position = new Vector3(0, -1.8, -0.7);
+    var material = new StandardMaterial("facetexture", this.scene);
+    material.diffuseTexture = new Texture("assets/face.png", this.scene);
+    material.diffuseTexture.scale(1.0);
+    plane.material = material;
+
 
     var eyes1 = this.createEyePair(new Color3(0, 0.85, 1), this.scene);
 

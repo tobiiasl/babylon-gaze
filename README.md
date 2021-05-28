@@ -15,7 +15,7 @@ Focus was to get something working quickly and thus code quality had to suffer.
 - Make sure you have your Tobii Pro Glasses 3 glasses connected to your network.
 - Navigate to the web app and specify in the url which unit to connect to, e.g.
   - `http://localhost:4200/tg03b-080200100361.local` OR
-  - `http://localhost:4200/192.175.75.51`
+  - `http://localhost:4200/192.175.75.51` (static ip address for Glasses 3 access point)
 - Put on the Tobii Pro Glasses 3 and start looking around. The eyes will look in the same direction as you do.
 
 **Screenshot**

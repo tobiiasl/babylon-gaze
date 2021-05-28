@@ -10,7 +10,6 @@ import {
   Vector3,
   HemisphericLight,
   StandardMaterial,
-  DynamicTexture,
   Texture,
   Color4
 } from '@babylonjs/core';

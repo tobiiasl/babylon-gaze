@@ -1,6 +1,4 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import {getGaze} from '../gaze';
 import { EngineService } from './engine.service';
 
 @Component({
@@ -12,9 +10,7 @@ export class EngineComponent implements OnInit {
   @ViewChild('rendererCanvas', { static: true })
   public rendererCanvas: ElementRef<HTMLCanvasElement>;
 
-  public constructor(private engServ: EngineService,
-    // private route: ActivatedRoute
-    ) { }
+  public constructor(private engServ: EngineService) {}
 
   public ngOnInit(): void {
     const path = window.location.pathname;

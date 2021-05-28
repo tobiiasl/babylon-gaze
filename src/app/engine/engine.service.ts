@@ -4,14 +4,12 @@ import {
   Engine,
   FreeCamera,
   Scene,
-  Light,
   Mesh,
   MeshBuilder,
   Color3,
   Vector3,
   HemisphericLight,
-  StandardMaterial,
-  DynamicTexture,
+  StandardMaterial
 } from '@babylonjs/core';
 import {getGaze} from '../gaze';
 
@@ -25,9 +23,6 @@ export class EngineService {
   private engine: Engine;
   private camera: FreeCamera;
   private scene: Scene;
-  private light: Light;
-
-  private sphere: Mesh;
 
   public constructor(
     private ngZone: NgZone,
@@ -74,10 +69,7 @@ export class EngineService {
       }
     );
 
-    var index = 0;
     setInterval(() => {
-      index++;
-      var speed = 0.3;
       this.eyesLookAt(eyes1, flyposition);
     }, 1000/60);
   }

@@ -55,10 +55,10 @@ export class EngineService {
     // Default intensity is 1. Let's dim the light a small amount
     light.intensity = 1;
 
-    var plane = Mesh.CreatePlane("face", 10, this.scene);
-    plane.position = new Vector3(0, -1.8, -0.7);
+    var plane = Mesh.CreatePlane("face", 12, this.scene);
+    plane.position = new Vector3(0, -0.7, -0.8);
     var material = new StandardMaterial("facetexture", this.scene);
-    material.diffuseTexture = new Texture("assets/face.png", this.scene);
+    material.diffuseTexture = new Texture("assets/me.jpg", this.scene);
     material.diffuseTexture.scale(1.0);
     plane.material = material;
 

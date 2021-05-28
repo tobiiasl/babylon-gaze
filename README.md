@@ -11,7 +11,7 @@ Focus was to get something working quickly and thus code quality had to suffer.
 - Clone this repo
 - Download and install npm - Node package manager: https://www.npmjs.com/
 - Run "npm install"
-- Run "ng serve" to compile the typescript code and start the Angular web server
+- Run "npx ng serve" to compile the typescript code and start the Angular web server
 - Make sure you have your Tobii Pro Glasses 3 glasses connected to your network.
 - Navigate to the web app and specify in the url which unit to connect to, e.g.
   - `http://localhost:4200/tg03b-080200100361.local` OR
